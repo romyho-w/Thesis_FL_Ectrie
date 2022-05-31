@@ -1,5 +1,7 @@
 import torch
 from sklearn.model_selection import train_test_split
+
+
 def client_train_test_split(X, y):
         X_train, X_test, y_train, y_test = train_test_split(X,
                                                         y,
@@ -11,6 +13,9 @@ def client_train_test_split(X, y):
         y_train = torch.Tensor(y_train.reset_index(drop=True).to_numpy()).unsqueeze(1)
         y_test = torch.Tensor(y_test.reset_index(drop=True).to_numpy()).unsqueeze(1)
         return X_train, X_test, y_train, y_test
+
+
+
 class Client:
     """
 
@@ -32,9 +37,9 @@ class Client:
     def set_model(self, model):
         self.model = model
 
-    def train(self, n_epochs=10): 
+    def train(self, n_epochs=1): 
         epoch_loss = []
-
+        self.model.train()
         for e in range(n_epochs):
             self.optim.zero_grad()
             out = self.model(self.X_train)
