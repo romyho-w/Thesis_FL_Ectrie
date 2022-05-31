@@ -1,0 +1,8 @@
+/.DS_Store
+/.ipynb_checkpoints
+/.vscode
+/__pycache__
+/thesis_fl
+FL_HE_2/__pycache__/clientClass.cpython-39.pyc
+FL_HE_2/__pycache__/dataFunction.cpython-39.pyc
+FL_HE_2/__pycache__/HE_functions.cpython-39.pyc
