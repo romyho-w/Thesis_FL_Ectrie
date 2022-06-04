@@ -116,3 +116,52 @@ class PolyLRClient(object):
 
 
 #%%
+
+
+
+def random_overlapping_intervals(
+    n_intervals: int,
+    total_range: Interval,
+    interval_fraction: float = 1.
+) -> Generator[Interval, None, None]:
+    """
+    Creates a function that returns random overlapping intervals, with the width
+    determined by a fraction of the total interval.
+    """
+    v_min, v_max = total_range
+    D = v_max - v_min
+    d = D * interval_fraction
+    for _ in range(n_intervals):
+        s_start = (np.random.rand() * (D - d)) + v_min
+        s_end = s_start + d
+        yield s_start, s_end
+
+def interval_data(intervals: list[Interval], n_samples: int):
+    """ Creates datasets for each client with uniform random samples between interval. """
+    n_clients = len(intervals)
+    Xs = np.full((n_clients, n_samples, 1), np.nan)
+    for i_client, (v_min, v_max) in enumerate(intervals):
+        Xs[i_client, :, 0] = np.random.rand(
+            n_samples) * (v_max - v_min) + v_min
+    return Xs
+
+def to_features(Xs: np.ndarray, feature_function: Callable, feature_params_list: list[FeatureParams]) -> np.ndarray:
+    """
+    Creates features out of randomized data. 
+
+    inputs:
+    - Xs | array of randomized data (n_clients, n_samples, 1)
+    - feature_function | a function that takes in an input array and a feature
+    params and spits out a feature array
+    - feature_params_list | list of feature parameters
+
+    outputs:
+    - Xs_features | array of feature data (n_clients, n_samples, n_features)
+
+    """
+    n_features = len(feature_params_list)
+    X_features = np.repeat(Xs[:, :, [0]], n_features, axis=2)
+    for i_feature, feature_params in enumerate(feature_params_list):
+        X_features[:, :, i_feature] = feature_function(X_features[:, :, i_feature],
+                                                       feature_params)
+    return X_features

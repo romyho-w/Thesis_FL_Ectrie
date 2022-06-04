@@ -9,7 +9,8 @@ Number = Union[int, float]
 
 def make_features(intervals: list[tuple[Number]], n_samples: int) -> np.ndarray:
     n_features = len(intervals)
-    X = np.random.rand(n_samples, n_features)
+    mean = np.random.rand(n_samples, n_features)
+    X = np.random.multivariate_normal(mean, )
     for i, (low, high) in enumerate(intervals):
         diff = high - low
         X[:, i] = (X[:, i] * diff) + low
@@ -30,7 +31,7 @@ def make_logreg_data(intervals: list[tuple[Number]], thresholds: list[Number], n
 if __name__ == "__main__":
     intervals = [(-100, 100), (-100, 100)]
     thresholds = [-30, -40]
-    n_samples = 10000
+    n_samples = 1000
     X, y = make_logreg_data(intervals, thresholds, n_samples)
     # print(X)
     plt.figure()
