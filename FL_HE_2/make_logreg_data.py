@@ -9,8 +9,8 @@ Number = Union[int, float]
 
 def make_features(intervals: list[tuple[Number]], n_samples: int) -> np.ndarray:
     n_features = len(intervals)
-    mean = np.random.rand(n_samples, n_features)
-    X = np.random.multivariate_normal(mean, )
+    X = np.random.rand(n_samples, n_features)
+    # X = np.random.multivariate_normal(mean, )
     for i, (low, high) in enumerate(intervals):
         diff = high - low
         X[:, i] = (X[:, i] * diff) + low
