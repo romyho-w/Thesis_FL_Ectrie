@@ -5,11 +5,10 @@ def client_train_test_split(X, y):
                                                         y,
                                                         test_size=0.2,
                                                         random_state=42)
-
         X_train = torch.tensor(X_train.to_numpy()).float()
         X_test = torch.tensor(X_test.to_numpy()).float()
-        y_train = torch.Tensor(y_train.reset_index(drop=True).to_numpy()).unsqueeze(1)
-        y_test = torch.Tensor(y_test.reset_index(drop=True).to_numpy()).unsqueeze(1)
+        y_train = torch.Tensor(y_train.reset_index(drop=True).to_numpy())
+        y_test = torch.Tensor(y_test.reset_index(drop=True).to_numpy())
         return X_train, X_test, y_train, y_test
 class Client:
     """
@@ -17,9 +16,9 @@ class Client:
 
     """
 
-    def __init__(self, name, X, y, cat_feat, model, lr, criterion):
+    def __init__(self, name, X, y, model, lr, criterion):
         self.name = name
-        self.X, self.y, self.cat_feat = X, y, cat_feat
+        self.X, self.y = X, y
         self.model = model
         self.criterion = criterion
         self.optim = torch.optim.SGD(model.parameters(), lr=lr)
