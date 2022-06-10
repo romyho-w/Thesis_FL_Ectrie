@@ -1,5 +1,7 @@
 import torch
 from sklearn.model_selection import train_test_split
+import copy
+
 def client_train_test_split(X, y):
         X_train, X_test, y_train, y_test = train_test_split(X,
                                                         y,
@@ -16,9 +18,9 @@ class Client:
 
     """
 
-    def __init__(self, name, X, y, model, lr, criterion):
+    def __init__(self, name, X, y, model: torch.nn.Module, lr, criterion):
         self.name = name
-        self.X, self.y = X, y
+        self.X, self.y, self.lr = X, y, lr
         self.model = model
         self.criterion = criterion
         self.optim = torch.optim.SGD(model.parameters(), lr=lr)
@@ -30,21 +32,6 @@ class Client:
     
     def set_model(self, model):
         self.model = model
-
-    def train(self, n_epochs=10): 
-        epoch_loss = []
-
-        for e in range(n_epochs):
-            self.optim.zero_grad()
-            out = self.model(self.X_train)
-            loss = self.criterion(out, self.y_train)
-            if e == 0:
-                epoch_loss.append(loss.item())
-            loss.backward()
-            self.optim.step()
-            epoch_loss.append(loss.item())
-        
-        return self.model.state_dict(), epoch_loss
     
     def set_state_dict(self, state_dict):
         self.model.load_state_dict(state_dict)
