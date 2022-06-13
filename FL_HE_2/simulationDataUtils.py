@@ -5,16 +5,18 @@ import copy
 from clientClass import Client
 import torch
 
-def make_clients_dist(cov_list, n_clients, n_features):
+def make_clients_dist(mean_dist, n_clients, n_features):
     clients_distribution = []
+    random.seed(11007303)
+    np.random.seed(2021)
+    random_mu = np.random.randint(-10,10,n_features)
     for i in range(n_clients):
-        random.seed(11007303)
-        np.random.seed(2021)
-        # mu = np.array(mu_list[i])
-        random_mu = np.random.randint(-10,10,n_features)
-        # rand_cov_num = np.random.default_rng().integers(low=1, high=4)
-        cov = np.diag([cov_list[i]]*n_features)
-        clients_distribution.append([random_mu, cov])
+        if i == 0: 
+            mu = random_mu
+        else:
+            mu = np.random.uniform(random_mu, (random_mu * (1+mean_dist)))
+        cov = np.diag([1]*n_features)
+        clients_distribution.append([mu, cov])
     return clients_distribution
 
 
