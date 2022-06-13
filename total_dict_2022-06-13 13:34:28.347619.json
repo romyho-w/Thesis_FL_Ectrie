@@ -1,0 +1,1442 @@
+{
+    "0": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.2750035238557018,
+            "acc_mean": 0.7284375011920929
+        }
+    },
+    "1": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 9.900126858805264,
+            "acc_mean": 0.8509375020861626
+        }
+    },
+    "2": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 33.275426386539905,
+            "acc_mean": 0.8793749988079071
+        }
+    },
+    "3": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 70.40090210705964,
+            "acc_mean": 0.8959374994039535
+        }
+    },
+    "4": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 121.27655402036439,
+            "acc_mean": 0.9565624997019768
+        }
+    },
+    "5": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 185.90238212645428,
+            "acc_mean": 0.8184375017881393
+        }
+    },
+    "6": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.35699785454582944,
+            "acc_mean": 0.7634375005960464
+        }
+    },
+    "7": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 12.851922763649863,
+            "acc_mean": 0.8521875008940697
+        }
+    },
+    "8": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 43.19674040004537,
+            "acc_mean": 0.920937503874302
+        }
+    },
+    "9": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 91.39145076373235,
+            "acc_mean": 0.8815624997019768
+        }
+    },
+    "10": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 157.43605385471088,
+            "acc_mean": 0.8703125
+        }
+    },
+    "11": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 241.33054967298085,
+            "acc_mean": 0.8078125
+        }
+    },
+    "12": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.6317766283380823,
+            "acc_mean": 0.7600000023841857
+        }
+    },
+    "13": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 22.743958620170947,
+            "acc_mean": 0.8056249976158142
+        }
+    },
+    "14": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 76.44497202890788,
+            "acc_mean": 0.762187497317791
+        }
+    },
+    "15": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 161.7348168545489,
+            "acc_mean": 0.7462499991059304
+        }
+    },
+    "16": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 278.6134930970941,
+            "acc_mean": 0.7387500032782555
+        }
+    },
+    "17": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 427.0810007565432,
+            "acc_mean": 0.7234375014901161
+        }
+    },
+    "18": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.8380470252364809,
+            "acc_mean": 0.7253124997019768
+        }
+    },
+    "19": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 30.169692908513287,
+            "acc_mean": 0.7746875017881394
+        }
+    },
+    "20": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 101.40369005361413,
+            "acc_mean": 0.8328124985098839
+        }
+    },
+    "21": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 214.54003846053902,
+            "acc_mean": 0.7409374997019768
+        }
+    },
+    "22": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 369.5787381292878,
+            "acc_mean": 0.7531250014901161
+        }
+    },
+    "23": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 566.5197890598605,
+            "acc_mean": 0.7234374977648258
+        }
+    },
+    "24": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 1.5136894021762988,
+            "acc_mean": 0.7256249994039535
+        }
+    },
+    "25": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 54.492818478346635,
+            "acc_mean": 0.7740625008940697
+        }
+    },
+    "26": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 183.15641766333175,
+            "acc_mean": 0.7265625014901161
+        }
+    },
+    "27": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 387.50448695713163,
+            "acc_mean": 0.8271874964237214
+        }
+    },
+    "28": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 667.5370263597463,
+            "acc_mean": 0.6946875020861626
+        }
+    },
+    "29": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 1023.2540358711755,
+            "acc_mean": 0.7278124988079071
+        }
+    },
+    "30": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.15711991504157496,
+            "acc_mean": 0.6720000058412552
+        }
+    },
+    "31": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 5.656316941496695,
+            "acc_mean": 0.6897500082850456
+        }
+    },
+    "32": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 19.011509720030567,
+            "acc_mean": 0.7415000066161156
+        }
+    },
+    "33": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 40.22269825064317,
+            "acc_mean": 0.724250003695488
+        }
+    },
+    "34": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 69.28988253333452,
+            "acc_mean": 0.7357500076293946
+        }
+    },
+    "35": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 106.21306256810462,
+            "acc_mean": 0.7615000039339066
+        }
+    },
+    "36": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.13932526124889727,
+            "acc_mean": 0.7026250034570694
+        }
+    },
+    "37": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 5.015709404960306,
+            "acc_mean": 0.7197500064969062
+        }
+    },
+    "38": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 16.858356611116584,
+            "acc_mean": 0.7377500012516975
+        }
+    },
+    "39": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 35.66726687971773,
+            "acc_mean": 0.7411250054836274
+        }
+    },
+    "40": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 61.442440210763756,
+            "acc_mean": 0.7703750014305115
+        }
+    },
+    "41": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 94.18387660425466,
+            "acc_mean": 0.7438750028610229
+        }
+    },
+    "42": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.2471726815955421,
+            "acc_mean": 0.692250007390976
+        }
+    },
+    "43": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 8.898216537439513,
+            "acc_mean": 0.6808750063180924
+        }
+    },
+    "44": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 29.907894473060576,
+            "acc_mean": 0.7030000030994416
+        }
+    },
+    "45": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 63.276206488458755,
+            "acc_mean": 0.6653750106692314
+        }
+    },
+    "46": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 109.003152583634,
+            "acc_mean": 0.7156250074505806
+        }
+    },
+    "47": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 167.08873275858633,
+            "acc_mean": 0.7022500075399876
+        }
+    },
+    "48": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.6256330333838503,
+            "acc_mean": 0.6973750054836273
+        }
+    },
+    "49": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 22.522789201818597,
+            "acc_mean": 0.6902500063180923
+        }
+    },
+    "50": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 75.70159703944586,
+            "acc_mean": 0.6780000016093254
+        }
+    },
+    "51": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 160.1620565462656,
+            "acc_mean": 0.7008750110864639
+        }
+    },
+    "52": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 275.9041677222778,
+            "acc_mean": 0.7076250106096268
+        }
+    },
+    "53": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 422.9279305674825,
+            "acc_mean": 0.649000009894371
+        }
+    },
+    "54": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.834830073057252,
+            "acc_mean": 0.6572500064969062
+        }
+    },
+    "55": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 30.053882630061064,
+            "acc_mean": 0.6953750029206276
+        }
+    },
+    "56": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 101.01443883992746,
+            "acc_mean": 0.6866250023245811
+        }
+    },
+    "57": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 213.71649870265642,
+            "acc_mean": 0.6473750099539757
+        }
+    },
+    "58": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 368.160062218248,
+            "acc_mean": 0.6442500129342079
+        }
+    },
+    "59": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 564.3451293867021,
+            "acc_mean": 0.7250000074505806
+        }
+    },
+    "60": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.09215087460377779,
+            "acc_mean": 0.6132500067353248
+        }
+    },
+    "61": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 3.3174314857359954,
+            "acc_mean": 0.6341250002384186
+        }
+    },
+    "62": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 11.150255827057101,
+            "acc_mean": 0.6567500025033951
+        }
+    },
+    "63": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 23.590623898567088,
+            "acc_mean": 0.6846874967217446
+        }
+    },
+    "64": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 40.63853570026595,
+            "acc_mean": 0.6558750033378601
+        }
+    },
+    "65": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 62.2939912321537,
+            "acc_mean": 0.6685000047087669
+        }
+    },
+    "66": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.1509265969383603,
+            "acc_mean": 0.6358125001192093
+        }
+    },
+    "67": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 5.433357489780969,
+            "acc_mean": 0.6648750022053719
+        }
+    },
+    "68": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 18.26211822954159,
+            "acc_mean": 0.6863750010728836
+        }
+    },
+    "69": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 38.637208816220216,
+            "acc_mean": 0.7089375033974648
+        }
+    },
+    "70": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 66.55862924981687,
+            "acc_mean": 0.674125000834465
+        }
+    },
+    "71": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 102.0263795303315,
+            "acc_mean": 0.6636250048875809
+        }
+    },
+    "72": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.22450951499961644,
+            "acc_mean": 0.6181874990463256
+        }
+    },
+    "73": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 8.082342539986183,
+            "acc_mean": 0.6331874966621399
+        }
+    },
+    "74": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 27.16565131495356,
+            "acc_mean": 0.6441250041127204
+        }
+    },
+    "75": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 57.474435839901744,
+            "acc_mean": 0.62362499833107
+        }
+    },
+    "76": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 99.00869611483076,
+            "acc_mean": 0.6575000017881394
+        }
+    },
+    "77": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 151.7684321397405,
+            "acc_mean": 0.651312506198883
+        }
+    },
+    "78": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.5065542705306738,
+            "acc_mean": 0.6399999931454659
+        }
+    },
+    "79": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 18.235953739104254,
+            "acc_mean": 0.6551874980330468
+        }
+    },
+    "80": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 61.29306673421151,
+            "acc_mean": 0.6574375033378601
+        }
+    },
+    "81": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 129.67789325585244,
+            "acc_mean": 0.6286250039935112
+        }
+    },
+    "82": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 223.390433304027,
+            "acc_mean": 0.6466250002384186
+        }
+    },
+    "83": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 342.4306868787353,
+            "acc_mean": 0.6626249998807907
+        }
+    },
+    "84": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.6583153253146585,
+            "acc_mean": 0.6243125021457672
+        }
+    },
+    "85": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 23.69935171132769,
+            "acc_mean": 0.626875002682209
+        }
+    },
+    "86": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 79.65615436307363,
+            "acc_mean": 0.622187502682209
+        }
+    },
+    "87": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 168.5287232805524,
+            "acc_mean": 0.6293750025331974
+        }
+    },
+    "88": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 290.31705846376417,
+            "acc_mean": 0.6337500035762786
+        }
+    },
+    "89": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 445.02115991270864,
+            "acc_mean": 0.6751875013113022
+        }
+    },
+    "90": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.07302838594178,
+            "acc_mean": 0.5750416710972786
+        }
+    },
+    "91": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 2.629021893904077,
+            "acc_mean": 0.5808958321809768
+        }
+    },
+    "92": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 8.836434698955372,
+            "acc_mean": 0.5942708387970924
+        }
+    },
+    "93": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 18.69526680109566,
+            "acc_mean": 0.5931250020861626
+        }
+    },
+    "94": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 32.20551820032495,
+            "acc_mean": 0.6017291665077209
+        }
+    },
+    "95": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 49.36718889664323,
+            "acc_mean": 0.5847499996423722
+        }
+    },
+    "96": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.1101455710822962,
+            "acc_mean": 0.5578333303332329
+        }
+    },
+    "97": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 3.965240558962661,
+            "acc_mean": 0.5897083312273026
+        }
+    },
+    "98": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 13.327614100957828,
+            "acc_mean": 0.6079375013709069
+        }
+    },
+    "99": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 28.1972661970678,
+            "acc_mean": 0.5997916698455811
+        }
+    },
+    "100": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 48.574196847292576,
+            "acc_mean": 0.5912291646003723
+        }
+    },
+    "101": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 5,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 74.45840605163217,
+            "acc_mean": 0.5780833289027214
+        }
+    },
+    "102": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.22172360377407827,
+            "acc_mean": 0.5754375010728836
+        }
+    },
+    "103": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 7.9820497358668145,
+            "acc_mean": 0.5941875010728837
+        }
+    },
+    "104": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 26.828556056663466,
+            "acc_mean": 0.6052916646003723
+        }
+    },
+    "105": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 56.761242566164015,
+            "acc_mean": 0.601166670024395
+        }
+    },
+    "106": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 97.78010926436848,
+            "acc_mean": 0.5807500064373017
+        }
+    },
+    "107": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 10,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 149.88515615127685,
+            "acc_mean": 0.5965208359062671
+        }
+    },
+    "108": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.45920689353796373,
+            "acc_mean": 0.5948958337306977
+        }
+    },
+    "109": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 16.531448167366687,
+            "acc_mean": 0.593062499165535
+        }
+    },
+    "110": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 55.56403411809358,
+            "acc_mean": 0.5843958303332328
+        }
+    },
+    "111": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 117.55696474571866,
+            "acc_mean": 0.6050208300352097
+        }
+    },
+    "112": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 202.51024005024192,
+            "acc_mean": 0.594250001013279
+        }
+    },
+    "113": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 310.42386003166325,
+            "acc_mean": 0.5950208313763141
+        }
+    },
+    "114": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.6545632266871806,
+            "acc_mean": 0.5782499983906746
+        }
+    },
+    "115": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 0.6
+        },
+        "results": {
+            "KL_mean": 23.564276160738476,
+            "acc_mean": 0.5831041693687439
+        }
+    },
+    "116": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.1
+        },
+        "results": {
+            "KL_mean": 79.20215042914879,
+            "acc_mean": 0.5907291688024998
+        }
+    },
+    "117": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 1.6
+        },
+        "results": {
+            "KL_mean": 167.5681860319181,
+            "acc_mean": 0.5706458285450935
+        }
+    },
+    "118": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.1
+        },
+        "results": {
+            "KL_mean": 288.6623829690463,
+            "acc_mean": 0.5802083298563957
+        }
+    },
+    "119": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 20,
+            "n_observations": 200,
+            "mean_dist": 2.6
+        },
+        "results": {
+            "KL_mean": 442.48474124053354,
+            "acc_mean": 0.5803958311676979
+        }
+    }
+}
