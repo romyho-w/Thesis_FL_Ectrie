@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 
 def import_data(cleveland, switzerland, va, hungarian):
@@ -115,19 +116,53 @@ def make_dummies(df, cat_feat):
 
     return df 
 
-def data_prep(X,y):
+def KL_divergence_multi(client1, client2):
+    mu1 = client1.X.mean()
+    cov1 = client1.X.cov()
 
-    def scale_variables(X):
-        scaler = StandardScaler()
-        scaler.fit(X)
-        X_new = scaler.transform(X)
-        return X_new
+    mu2 = client2.X.mean()
+    cov2 = client2.X.cov()
 
-    X = scale_variables(X)
+    mu_dif = mu2 - mu1
+    inv_cov2 = np.linalg.inv(cov2)
+    trace_cov12 = np.trace((inv_cov2 @ cov1).to_numpy())
+    det_cov1 = np.linalg.det(cov1)
+    det_cov2 = np.linalg.det(cov2)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    x_train = torch.tensor(X_train).float()
-    y_train = torch.Tensor(y_train).unsqueeze(1)
-    x_test = torch.tensor(X_test).float()
-    y_test = torch.Tensor(y_test.reset_index(drop=True)).float().unsqueeze(1)
-    return X_train, X_test, y_train, y_test
+    return 1/2 *( mu_dif.T @ inv_cov2 @ mu_dif+trace_cov12-np.log(det_cov1/det_cov2)-len(mu1))
+
+def KL_divergence_norm(dist1, dist2):
+    mu1 = dist1[0]
+    cov1 = dist1[1]
+
+    mu2 = dist2[0]
+    cov2 = dist2[1]
+
+    return 1/2 *( (mu2-mu1)**2/cov2+cov1/cov2-np.log(cov1/cov2)-1)
+
+def KL_divergence_disc(prop1, prop2):
+        return sum(prop1*np.log(prop1/prop2))    
+
+def prob_discrete_var(outcomes):
+    val, cnt = np.unique(outcomes, return_counts=True)
+    prop = cnt / len(outcomes)
+    return prop
+
+
+def KL_matrices_disc_cont(clients, cat_feat):
+    kl = np.empty((len(clients), len(clients)))
+    for i in range(len(clients)):
+        for j in range(len(clients)):  
+            kl_all_cat = [] 
+            for c in cat_feat:
+                kl_all_cat.append(KL_divergence_disc(prob_discrete_var(clients[i].X[c]),prob_discrete_var(clients[j].X[c])))
+            kl[i,j] = sum(kl_all_cat) + KL_divergence_multi(clients[i], clients[j])
+    return pd.DataFrame(kl)
+
+
+def make_KL_matrices(n_clients, clients):
+    kl = np.empty((n_clients, n_clients))
+    for i in range(n_clients):
+        for j in range(n_clients):
+            kl[i,j] = KL_divergence_multi(clients[i], clients[j])
+    return pd.DataFrame(kl)

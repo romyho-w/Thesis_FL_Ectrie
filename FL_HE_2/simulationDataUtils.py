@@ -15,32 +15,7 @@ def make_clients_dist(mean_dist, n_clients, n_features):
         clients_distribution.append([mu, cov])
     return clients_distribution
 
-def KL_divergence(dist1, dist2):
-    mu1 = dist1[0]
-    cov1 = dist1[1]
 
-    mu2 = dist2[0]
-    cov2 = dist2[1]
-
-    mu_dif = mu2 - mu1
-    inv_cov2 = np.linalg.inv(cov2)
-    trace_cov12 = np.matrix.trace(inv_cov2*cov1)
-    det_cov1 = np.linalg.det(cov1)
-    det_cov2 = np.linalg.det(cov2)
-
-    return 1/2 *( mu_dif.T @ inv_cov2 @ mu_dif+trace_cov12-np.log(det_cov1/det_cov2)-len(mu1))
-
-
-def make_KL_matrices(n_clients, clients_distribution):
-    kl = np.empty((n_clients, n_clients))
-    # kl_sym = np.empty((n_clients, n_clients))
-    for i in range(n_clients):
-        for j in range(n_clients):
-            kl[i,j] = KL_divergence(clients_distribution[i], clients_distribution[j])
-            # kl_sym[i,j] = (KL_divergence(clients_distribution[i], clients_distribution[j]) +KL_divergence(clients_distribution[j], clients_distribution[i]))/2
-    KL_df = pd.DataFrame(kl)
-    # KL_sym_df = pd.DataFrame(kl_sym)
-    return KL_df
 
 def make_labels(X: np.ndarray, thresholds, epsilon_sigma) -> np.ndarray:
     thresholds = np.array(thresholds)[:, None]
