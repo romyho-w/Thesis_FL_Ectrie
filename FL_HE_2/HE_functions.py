@@ -55,7 +55,6 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
     acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set)
 
     best_acc = acc_test
-    best_epoch = 'start_value'
     for iter in range(iters):
         loss_locals = []
         client_state_dicts = []

@@ -18,12 +18,13 @@ class Client:
 
     """
 
-    def __init__(self, name, X, y, model: torch.nn.Module, lr, criterion):
+    def __init__(self, name, X, y, model: torch.nn.Module, lr, criterion, weights):
         self.name = name
         self.X, self.y, self.lr = X, y, lr
         self.model = model
         self.criterion = criterion
         self.optim = torch.optim.SGD(model.parameters(), lr=lr)
+        self.weights = weights
         self.X_train, self.X_test, self.y_train, self.y_test = client_train_test_split(self.X, self.y)
 
     
