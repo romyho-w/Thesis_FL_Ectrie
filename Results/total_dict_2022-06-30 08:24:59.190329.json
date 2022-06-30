@@ -1,0 +1,1874 @@
+{
+    "0": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 0.03884170205928239,
+            "acc_mean": 0.9667000061273575
+        }
+    },
+    "1": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 0.03884170205928239,
+            "acc_mean": 0.9466000026464463
+        }
+    },
+    "2": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 0.03884170205928239,
+            "acc_mean": 0.6611000007390976
+        }
+    },
+    "3": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 0.03884170205928239,
+            "acc_mean": 0.5387999963760376
+        }
+    },
+    "4": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 1.3983012741341554,
+            "acc_mean": 0.966700006723404
+        }
+    },
+    "5": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 1.3983012741341554,
+            "acc_mean": 0.9490000009536743
+        }
+    },
+    "6": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 1.3983012741341554,
+            "acc_mean": 0.6837000006437302
+        }
+    },
+    "7": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 1.3983012741341554,
+            "acc_mean": 0.5463999965786934
+        }
+    },
+    "8": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 4.699845949173132,
+            "acc_mean": 0.9637000077962875
+        }
+    },
+    "9": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 4.699845949173132,
+            "acc_mean": 0.9502000033855438
+        }
+    },
+    "10": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 4.699845949173132,
+            "acc_mean": 0.6841000020503998
+        }
+    },
+    "11": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 4.699845949173132,
+            "acc_mean": 0.551799995303154
+        }
+    },
+    "12": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 9.94347572717621,
+            "acc_mean": 0.9661000043153762
+        }
+    },
+    "13": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 9.94347572717621,
+            "acc_mean": 0.9471000027656555
+        }
+    },
+    "14": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 9.94347572717621,
+            "acc_mean": 0.6953000003099441
+        }
+    },
+    "15": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 9.94347572717621,
+            "acc_mean": 0.5499999988079071
+        }
+    },
+    "16": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 17.129190608143396,
+            "acc_mean": 0.9622000056505203
+        }
+    },
+    "17": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 17.129190608143396,
+            "acc_mean": 0.949600002169609
+        }
+    },
+    "18": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 17.129190608143396,
+            "acc_mean": 0.6961000007390976
+        }
+    },
+    "19": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 17.129190608143396,
+            "acc_mean": 0.5476999977231025
+        }
+    },
+    "20": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 26.25699059207468,
+            "acc_mean": 0.9606000059843063
+        }
+    },
+    "21": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 26.25699059207468,
+            "acc_mean": 0.9501000016927719
+        }
+    },
+    "22": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 26.25699059207468,
+            "acc_mean": 0.7268999999761582
+        }
+    },
+    "23": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 26.25699059207468,
+            "acc_mean": 0.5397999987006188
+        }
+    },
+    "24": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 0.04042506299455778,
+            "acc_mean": 0.9794000107049942
+        }
+    },
+    "25": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 0.04042506299455778,
+            "acc_mean": 0.9578000026941299
+        }
+    },
+    "26": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 0.04042506299455778,
+            "acc_mean": 0.6933000016212464
+        }
+    },
+    "27": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 0.04042506299455778,
+            "acc_mean": 0.5478999975323677
+        }
+    },
+    "28": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 1.455302267804078,
+            "acc_mean": 0.9781000101566315
+        }
+    },
+    "29": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 1.455302267804078,
+            "acc_mean": 0.9593000036478042
+        }
+    },
+    "30": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 1.455302267804078,
+            "acc_mean": 0.7028000003099442
+        }
+    },
+    "31": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 1.455302267804078,
+            "acc_mean": 0.5480999952554703
+        }
+    },
+    "32": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 4.891432622341484,
+            "acc_mean": 0.9778000098466874
+        }
+    },
+    "33": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 4.891432622341484,
+            "acc_mean": 0.9602000051736832
+        }
+    },
+    "34": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 4.891432622341484,
+            "acc_mean": 0.7139000010490417
+        }
+    },
+    "35": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 4.891432622341484,
+            "acc_mean": 0.5518999955058098
+        }
+    },
+    "36": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 10.348816126606776,
+            "acc_mean": 0.9792000108957291
+        }
+    },
+    "37": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 10.348816126606776,
+            "acc_mean": 0.9583000022172928
+        }
+    },
+    "38": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 10.348816126606776,
+            "acc_mean": 0.7225000047683716
+        }
+    },
+    "39": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 10.348816126606776,
+            "acc_mean": 0.5488999980688095
+        }
+    },
+    "40": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 17.82745278059996,
+            "acc_mean": 0.9752000099420548
+        }
+    },
+    "41": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 17.82745278059996,
+            "acc_mean": 0.9648000019788742
+        }
+    },
+    "42": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 17.82745278059996,
+            "acc_mean": 0.7241000008583068
+        }
+    },
+    "43": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 17.82745278059996,
+            "acc_mean": 0.5526999971270561
+        }
+    },
+    "44": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 27.327342584321,
+            "acc_mean": 0.9769000077247619
+        }
+    },
+    "45": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 27.327342584321,
+            "acc_mean": 0.9617000013589859
+        }
+    },
+    "46": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 27.327342584321,
+            "acc_mean": 0.7373000019788742
+        }
+    },
+    "47": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 27.327342584321,
+            "acc_mean": 0.5549000006914139
+        }
+    },
+    "48": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 0.039454379546749095,
+            "acc_mean": 0.9830000126361846
+        }
+    },
+    "49": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 0.039454379546749095,
+            "acc_mean": 0.9623000037670135
+        }
+    },
+    "50": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 0.039454379546749095,
+            "acc_mean": 0.7211000037193298
+        }
+    },
+    "51": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 0.039454379546749095,
+            "acc_mean": 0.5575999975204468
+        }
+    },
+    "52": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 1.4203576636829676,
+            "acc_mean": 0.9833000087738037
+        }
+    },
+    "53": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 1.4203576636829676,
+            "acc_mean": 0.9625000065565109
+        }
+    },
+    "54": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 1.4203576636829676,
+            "acc_mean": 0.7309999990463257
+        }
+    },
+    "55": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 1.4203576636829676,
+            "acc_mean": 0.5423999986052513
+        }
+    },
+    "56": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 4.773979925156639,
+            "acc_mean": 0.9837000101804734
+        }
+    },
+    "57": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 4.773979925156639,
+            "acc_mean": 0.965900005698204
+        }
+    },
+    "58": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 4.773979925156639,
+            "acc_mean": 0.7356000006198883
+        }
+    },
+    "59": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 4.773979925156639,
+            "acc_mean": 0.5576999935507775
+        }
+    },
+    "60": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 10.100321163967767,
+            "acc_mean": 0.9838000100851059
+        }
+    },
+    "61": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 10.100321163967767,
+            "acc_mean": 0.9678000044822693
+        }
+    },
+    "62": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 10.100321163967767,
+            "acc_mean": 0.7452999985218048
+        }
+    },
+    "63": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 10.100321163967767,
+            "acc_mean": 0.5554999956488609
+        }
+    },
+    "64": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 17.399381380116353,
+            "acc_mean": 0.9834000104665757
+        }
+    },
+    "65": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 17.399381380116353,
+            "acc_mean": 0.9706000065803528
+        }
+    },
+    "66": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 17.399381380116353,
+            "acc_mean": 0.7473000007867813
+        }
+    },
+    "67": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 17.399381380116353,
+            "acc_mean": 0.5614999985694885
+        }
+    },
+    "68": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 26.67116057360238,
+            "acc_mean": 0.981800011396408
+        }
+    },
+    "69": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 26.67116057360238,
+            "acc_mean": 0.9705000084638595
+        }
+    },
+    "70": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 26.67116057360238,
+            "acc_mean": 0.7658999979496002
+        }
+    },
+    "71": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 26.67116057360238,
+            "acc_mean": 0.5528999972343445
+        }
+    },
+    "72": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 0.047256257909395014,
+            "acc_mean": 0.9835000097751617
+        }
+    },
+    "73": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 0.047256257909395014,
+            "acc_mean": 0.9685000050067901
+        }
+    },
+    "74": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 0.047256257909395014,
+            "acc_mean": 0.7300999987125397
+        }
+    },
+    "75": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 0.047256257909395014,
+            "acc_mean": 0.5575999942421913
+        }
+    },
+    "76": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 1.7012252847382194,
+            "acc_mean": 0.9835000133514404
+        }
+    },
+    "77": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 1.7012252847382194,
+            "acc_mean": 0.9663000029325485
+        }
+    },
+    "78": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 1.7012252847382194,
+            "acc_mean": 0.7370000010728837
+        }
+    },
+    "79": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 1.7012252847382194,
+            "acc_mean": 0.5578999945521355
+        }
+    },
+    "80": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 5.718007207036792,
+            "acc_mean": 0.9855000096559524
+        }
+    },
+    "81": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 5.718007207036792,
+            "acc_mean": 0.9717000085115433
+        }
+    },
+    "82": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 5.718007207036792,
+            "acc_mean": 0.7472000020742416
+        }
+    },
+    "83": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 5.718007207036792,
+            "acc_mean": 0.5627999991178513
+        }
+    },
+    "84": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 12.097602024805123,
+            "acc_mean": 0.9866000086069107
+        }
+    },
+    "85": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 12.097602024805123,
+            "acc_mean": 0.9749000090360641
+        }
+    },
+    "86": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 12.097602024805123,
+            "acc_mean": 0.7604000008106232
+        }
+    },
+    "87": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 12.097602024805123,
+            "acc_mean": 0.5621000003814697
+        }
+    },
+    "88": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 20.84000973804319,
+            "acc_mean": 0.9876000088453293
+        }
+    },
+    "89": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 20.84000973804319,
+            "acc_mean": 0.9715000075101853
+        }
+    },
+    "90": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 20.84000973804319,
+            "acc_mean": 0.7757000023126602
+        }
+    },
+    "91": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 20.84000973804319,
+            "acc_mean": 0.5586999961733818
+        }
+    },
+    "92": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 31.94523034675103,
+            "acc_mean": 0.9897000080347061
+        }
+    },
+    "93": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 31.94523034675103,
+            "acc_mean": 0.9786000084877015
+        }
+    },
+    "94": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 31.94523034675103,
+            "acc_mean": 0.7857999992370606
+        }
+    },
+    "95": {
+        "parameters": {
+            "n_clients": 30,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 31.94523034675103,
+            "acc_mean": 0.5604999962449074
+        }
+    },
+    "96": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 0.047166993603386775,
+            "acc_mean": 0.9848000109195709
+        }
+    },
+    "97": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 0.047166993603386775,
+            "acc_mean": 0.9658000040054321
+        }
+    },
+    "98": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 0.047166993603386775,
+            "acc_mean": 0.7319000035524368
+        }
+    },
+    "99": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 0.047166993603386775,
+            "acc_mean": 0.5605000001192093
+        }
+    },
+    "100": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 1.6980117697219228,
+            "acc_mean": 0.9857000106573105
+        }
+    },
+    "101": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 1.6980117697219228,
+            "acc_mean": 0.970300008058548
+        }
+    },
+    "102": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 1.6980117697219228,
+            "acc_mean": 0.736800000667572
+        }
+    },
+    "103": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 1.6980117697219228,
+            "acc_mean": 0.55729999512434
+        }
+    },
+    "104": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 5.7072062260098,
+            "acc_mean": 0.9840000104904175
+        }
+    },
+    "105": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 5.7072062260098,
+            "acc_mean": 0.9718000108003616
+        }
+    },
+    "106": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 5.7072062260098,
+            "acc_mean": 0.7610000014305115
+        }
+    },
+    "107": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 5.7072062260098,
+            "acc_mean": 0.5646999990940094
+        }
+    },
+    "108": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 12.074750362467014,
+            "acc_mean": 0.9876000088453293
+        }
+    },
+    "109": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 12.074750362467014,
+            "acc_mean": 0.9714000076055527
+        }
+    },
+    "110": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 12.074750362467014,
+            "acc_mean": 0.7739999985694885
+        }
+    },
+    "111": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 12.074750362467014,
+            "acc_mean": 0.5547999998927117
+        }
+    },
+    "112": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 20.80064417909356,
+            "acc_mean": 0.9887000101804734
+        }
+    },
+    "113": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 20.80064417909356,
+            "acc_mean": 0.9775000113248825
+        }
+    },
+    "114": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 20.80064417909356,
+            "acc_mean": 0.779899999499321
+        }
+    },
+    "115": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 20.80064417909356,
+            "acc_mean": 0.5593999937176705
+        }
+    },
+    "116": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 31.884887675889445,
+            "acc_mean": 0.9875000089406967
+        }
+    },
+    "117": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 31.884887675889445,
+            "acc_mean": 0.9773000085353851
+        }
+    },
+    "118": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 31.884887675889445,
+            "acc_mean": 0.7879999965429306
+        }
+    },
+    "119": {
+        "parameters": {
+            "n_clients": 40,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 31.884887675889445,
+            "acc_mean": 0.5579999977350235
+        }
+    },
+    "120": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 0.04943431140311952,
+            "acc_mean": 0.9857000112533569
+        }
+    },
+    "121": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 0.04943431140311952,
+            "acc_mean": 0.9707000094652176
+        }
+    },
+    "122": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 0.04943431140311952,
+            "acc_mean": 0.7440000021457672
+        }
+    },
+    "123": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 0.04943431140311952,
+            "acc_mean": 0.5618999966979027
+        }
+    },
+    "124": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 1.7796352105123014,
+            "acc_mean": 0.9880000096559525
+        }
+    },
+    "125": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 1.7796352105123014,
+            "acc_mean": 0.9693000090122222
+        }
+    },
+    "126": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 1.7796352105123014,
+            "acc_mean": 0.7571999973058701
+        }
+    },
+    "127": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 1.7796352105123014,
+            "acc_mean": 0.5619999960064888
+        }
+    },
+    "128": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 5.981551679777459,
+            "acc_mean": 0.9869000101089478
+        }
+    },
+    "129": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 5.981551679777459,
+            "acc_mean": 0.9724000090360642
+        }
+    },
+    "130": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 5.981551679777459,
+            "acc_mean": 0.7671999990940094
+        }
+    },
+    "131": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 5.981551679777459,
+            "acc_mean": 0.5623999974131584
+        }
+    },
+    "132": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 12.655183719198597,
+            "acc_mean": 0.9900000089406967
+        }
+    },
+    "133": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 12.655183719198597,
+            "acc_mean": 0.9745000094175339
+        }
+    },
+    "134": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 12.655183719198597,
+            "acc_mean": 0.7825999993085861
+        }
+    },
+    "135": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 12.655183719198597,
+            "acc_mean": 0.5676999989151955
+        }
+    },
+    "136": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 21.8005313287757,
+            "acc_mean": 0.9900000077486039
+        }
+    },
+    "137": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 21.8005313287757,
+            "acc_mean": 0.9779000097513199
+        }
+    },
+    "138": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 21.8005313287757,
+            "acc_mean": 0.7983999961614608
+        }
+    },
+    "139": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 21.8005313287757,
+            "acc_mean": 0.5720999959111214
+        }
+    },
+    "140": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 33.417594508508785,
+            "acc_mean": 0.9904000085592269
+        }
+    },
+    "141": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 33.417594508508785,
+            "acc_mean": 0.9805000096559524
+        }
+    },
+    "142": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 33.417594508508785,
+            "acc_mean": 0.7975000005960464
+        }
+    },
+    "143": {
+        "parameters": {
+            "n_clients": 100,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 33.417594508508785,
+            "acc_mean": 0.5754999992251396
+        }
+    }
+}
