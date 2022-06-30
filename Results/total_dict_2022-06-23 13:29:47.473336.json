@@ -1,0 +1,92 @@
+{
+    "0": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.1,
+            "epsilon_sigma": 2.5
+        },
+        "results": {
+            "KL_mean": 0.008410624423161088,
+            "acc_mean": 0.6899999976158142,
+            "KL_std": 0.0,
+            "acc_std": 0.0
+        }
+    },
+    "1": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 0.6,
+            "epsilon_sigma": 2.5
+        },
+        "results": {
+            "KL_mean": 0.302782479233799,
+            "acc_mean": 0.7699999809265137,
+            "KL_std": 0.0,
+            "acc_std": 0.0
+        }
+    },
+    "2": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 2.5
+        },
+        "results": {
+            "KL_mean": 1.0176855552024915,
+            "acc_mean": 0.7099999785423279,
+            "KL_std": 0.0,
+            "acc_std": 0.0
+        }
+    },
+    "3": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 1.6,
+            "epsilon_sigma": 2.5
+        },
+        "results": {
+            "KL_mean": 2.153119852329238,
+            "acc_mean": 0.9200000166893005,
+            "KL_std": 0.0,
+            "acc_std": 0.0
+        }
+    },
+    "4": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.1,
+            "epsilon_sigma": 2.5
+        },
+        "results": {
+            "KL_mean": 3.709085370614039,
+            "acc_mean": 0.6100000143051147,
+            "KL_std": 0.0,
+            "acc_std": 0.0
+        }
+    },
+    "5": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 2,
+            "n_observations": 200,
+            "mean_dist": 2.6,
+            "epsilon_sigma": 2.5
+        },
+        "results": {
+            "KL_mean": 5.685582110056894,
+            "acc_mean": 0.7400000095367432,
+            "KL_std": 0.0,
+            "acc_std": 0.0
+        }
+    }
+}s

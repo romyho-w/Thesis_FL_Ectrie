@@ -1,74 +1,74 @@
 {
     "0": {
         "parameters": {
-            "n_clients": 5,
-            "n_features": 15,
+            "n_clients": 10,
+            "n_features": 2,
             "n_observations": 200,
             "mean_dist": 0.1
         },
         "results": {
-            "KL_mean": 0.00829614183618208,
-            "acc_mean": 0.9170000076293945
+            "KL_mean": 0.001221376923211744,
+            "acc_mean": 1.0
         }
     },
     "1": {
         "parameters": {
-            "n_clients": 5,
-            "n_features": 15,
+            "n_clients": 10,
+            "n_features": 2,
             "n_observations": 200,
             "mean_dist": 0.6
         },
         "results": {
-            "KL_mean": 0.29866110610255625,
-            "acc_mean": 0.9460000038146973
+            "KL_mean": 0.04396956923562232,
+            "acc_mean": 1.0
         }
     },
     "2": {
         "parameters": {
-            "n_clients": 5,
-            "n_features": 15,
+            "n_clients": 10,
+            "n_features": 2,
             "n_observations": 200,
             "mean_dist": 1.1
         },
         "results": {
-            "KL_mean": 1.0038331621780372,
-            "acc_mean": 0.997000002861023
+            "KL_mean": 0.14778660770861915,
+            "acc_mean": 1.0
         }
     },
     "3": {
         "parameters": {
-            "n_clients": 5,
-            "n_features": 15,
+            "n_clients": 10,
+            "n_features": 2,
             "n_observations": 200,
             "mean_dist": 1.6
         },
         "results": {
-            "KL_mean": 2.123812310062623,
-            "acc_mean": 0.8550000071525574
+            "KL_mean": 0.3126724923422024,
+            "acc_mean": 0.9300000071525574
         }
     },
     "4": {
         "parameters": {
-            "n_clients": 5,
-            "n_features": 15,
+            "n_clients": 10,
+            "n_features": 2,
             "n_observations": 200,
             "mean_dist": 2.1
         },
         "results": {
-            "KL_mean": 3.658598549756315,
-            "acc_mean": 0.8389999985694885
+            "KL_mean": 0.5386272231363721,
+            "acc_mean": 0.8899999856948853
         }
     },
     "5": {
         "parameters": {
-            "n_clients": 5,
-            "n_features": 15,
+            "n_clients": 10,
+            "n_features": 2,
             "n_observations": 200,
             "mean_dist": 2.6
         },
         "results": {
-            "KL_mean": 5.608191881259115,
-            "acc_mean": 0.9290000081062317
+            "KL_mean": 0.8256508000911283,
+            "acc_mean": 1.0
         }
     }
 }

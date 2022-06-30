@@ -1,0 +1,152 @@
+{
+    "0": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 9.095639173775487,
+            "acc_mean": 0.9740000009536743,
+            "KL_std": 0.0,
+            "acc_std": 0.018547243726844496
+        }
+    },
+    "1": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 9.095639173775487,
+            "acc_mean": 0.9680000066757202,
+            "KL_std": 0.0,
+            "acc_std": 0.01166191924553059
+        }
+    },
+    "2": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 9.095639173775487,
+            "acc_mean": 0.6960000038146973,
+            "KL_std": 0.0,
+            "acc_std": 0.039293771621993344
+        }
+    },
+    "3": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 9.095639173775487,
+            "acc_mean": 0.5339999914169311,
+            "KL_std": 0.0,
+            "acc_std": 0.03611093280226787
+        }
+    },
+    "4": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 1000
+        },
+        "results": {
+            "KL_mean": 9.095639173775487,
+            "acc_mean": 0.5239999949932098,
+            "KL_std": 0.0,
+            "acc_std": 0.03720214832214516
+        }
+    },
+    "5": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 0.5
+        },
+        "results": {
+            "KL_mean": 8.877235398018545,
+            "acc_mean": 0.9820000171661377,
+            "KL_std": 0.0,
+            "acc_std": 0.0039999961853027345
+        }
+    },
+    "6": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 1
+        },
+        "results": {
+            "KL_mean": 8.877235398018545,
+            "acc_mean": 0.9620000004768372,
+            "KL_std": 0.0,
+            "acc_std": 0.019390723069142492
+        }
+    },
+    "7": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "KL_mean": 8.877235398018545,
+            "acc_mean": 0.7459999918937683,
+            "KL_std": 0.0,
+            "acc_std": 0.08014985251077039
+        }
+    },
+    "8": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 100
+        },
+        "results": {
+            "KL_mean": 8.877235398018545,
+            "acc_mean": 0.5559999942779541,
+            "KL_std": 0.0,
+            "acc_std": 0.032000012695791245
+        }
+    },
+    "9": {
+        "parameters": {
+            "n_clients": 10,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.5,
+            "epsilon_sigma": 1000
+        },
+        "results": {
+            "KL_mean": 8.877235398018545,
+            "acc_mean": 0.5239999949932098,
+            "KL_std": 0.0,
+            "acc_std": 0.05083306298835519
+        }
+    }
+}
