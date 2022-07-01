@@ -1,6 +1,9 @@
+import copy
+
+import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
-import copy
+
 
 def client_train_test_split(X, y):
         X_train, X_test, y_train, y_test = train_test_split(X,
@@ -37,3 +40,15 @@ class Client:
     def set_state_dict(self, state_dict):
         self.model.load_state_dict(state_dict)
 
+    def make_dummies(self, cat_feat):
+        possible_values = dict()
+        for i in cat_feat:
+            possible_values[i] = self.X[i].unique().astype(int)
+
+        for feature in cat_feat:
+            list_of_possible_values = [feature + '_' + str(value) for value in possible_values[feature]]
+            dummies = pd.get_dummies(self.X[feature].astype(int), prefix = feature).T.reindex(list_of_possible_values).T.fillna(0)
+            self.X = pd.concat([self.X, dummies], axis=1)
+        self.X = self.X.drop(cat_feat, axis = 1)
+
+        return self.X 

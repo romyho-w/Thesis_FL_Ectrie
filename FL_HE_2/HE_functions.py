@@ -9,8 +9,10 @@ from lrClass import LR
 def accuracy_loss_LR(model, x, y):
     criterion = torch.nn.BCELoss()
     out = model(x)
-    correct = torch.abs(y - out) < 0.5
-    loss = criterion(out, y)
+    yhat = torch.squeeze(out)
+
+    correct = torch.abs(y - yhat) < 0.5
+    loss = criterion(yhat, y)
     return correct.float().mean(), loss.item()
 
 def average_state_dict(state_dicts):
@@ -81,7 +83,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         #     iter, loss_avg, loss_test, acc_test))
 
 
-        if best_acc is None or acc_test >= best_acc:
+        if best_acc is None or acc_test > best_acc:
             net_best = copy.deepcopy(glob_model)
             best_acc = acc_test
             best_epoch = iter
@@ -91,7 +93,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         final_results = pd.DataFrame(final_results, columns=['epoch', 'loss_avg', 'loss_test', 'acc_test', 'best_acc'])
 
     # print('Best model, iter: {}, acc: {}'.format(best_epoch, best_acc))    
-    return best_epoch, best_acc, glob_model.state_dict(), final_results
+    return best_epoch, best_acc, glob_model.state_dict(), final_results, net_best
 
 def train_model_client(client:Client, epochs):
     epoch_loss = []
@@ -100,7 +102,9 @@ def train_model_client(client:Client, epochs):
         client.model.train()
         client.optim.zero_grad()
         out = client.model(client.X_train)
-        loss = client.criterion(out, client.y_train)
+        if len(out.shape) > 1:
+            yhat = torch.squeeze(out)
+        loss = client.criterion(yhat, client.y_train)
         if e == 0:
             epoch_loss.append(loss.item())
         loss.backward()

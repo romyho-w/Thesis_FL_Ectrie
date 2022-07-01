@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import numpy as np
+import torch
 
 
 def import_data(cleveland, switzerland, va, hungarian):
@@ -60,14 +61,17 @@ def import_data(cleveland, switzerland, va, hungarian):
     return cleveland_df, switzerland_df, va_df, hungarian_df
 
     
-def new_df(df):
-    start_len = df.shape[0]
+def new_df(df, Swizerland = True):
+    # start_len = df.shape[0]
     # print(start_len)
     # df = pd.concat([cleveland_df, switzerland_df, va_df, hungarian_df])
     df.HeartDisease = df.HeartDisease.replace([1, 2, 3, 4], 1)
-    df = df.drop(columns=['thal', 'ca'])
+    if Swizerland:
+        df = df.drop(columns=['thal', 'ca', 'Cholesterol'])
+    else:
+        df = df.drop(columns=['thal', 'ca'])
     df = df.drop_duplicates()
-    drop_dup= df.shape[0]
+    # drop_dup= df.shape[0]
     # print how many rows are droped
     # print('drop duplicates', start_len-drop_dup)
 
@@ -77,7 +81,7 @@ def new_df(df):
     perc = 35.0 
     min_count =  int(((100-perc)/100)*df.shape[1] + 1)
     df = df.dropna( axis=0, thresh=min_count)
-    drop_mis = df.shape[0]
+    # drop_mis = df.shape[0]
     # print how many rows are droped
     # print('drop rows with missing values', drop_dup-drop_mis)
     
@@ -87,15 +91,18 @@ def new_df(df):
     df.RestingBP = df.RestingBP.fillna(df.RestingBP.median())
     df.FastingBS = df.FastingBS.fillna(df.FastingBS.median())
     df.RestingECG = df.RestingECG.fillna(df.RestingECG.median())
-    df.Cholesterol = df.Cholesterol.fillna(df.Cholesterol.median())
+    # 
     df.MaxHR = df.MaxHR.fillna(df.MaxHR.median())
     df.ExerciseAngina = df.ExerciseAngina.fillna(df.ExerciseAngina.median())
     df.Oldpeak = df.Oldpeak.fillna(df.Oldpeak.median())
 
+
+    if not Swizerland:
+        df.Cholesterol = df.Cholesterol.fillna(df.Cholesterol.median())
     # DROP ROW WHERE RESTING BP = 0
     # df = df[df.RestingBP != 0]
     df.RestingBP = df.RestingBP.replace(0, df.RestingBP.median())
-    dropBP = df.shape[0]
+    # dropBP = df.shape[0]
     # print('drop rows with resting BP', drop_mis-dropBP)
     # # REPLACE CHOLESTROL VALUE = 0 WITH MEDIAN
     # df.Cholesterol = df.Cholesterol.replace(0, df.Cholesterol.median())
@@ -116,12 +123,18 @@ def make_dummies(df, cat_feat):
 
     return df 
 
-def KL_divergence_multi(client1, client2):
-    mu1 = client1.X.mean()
-    cov1 = client1.X.cov()
+def KL_divergence_multi(client1, client2, numeric = True, num_feat=None):
+    if not numeric:
+        X = client1.X[num_feat]
+        X = client2.X[num_feat]
+    else:
+        X = client1.X
+        X = client2.X
+    mu1 = X.mean()
+    cov1 = X.cov()
 
-    mu2 = client2.X.mean()
-    cov2 = client2.X.cov()
+    mu2 = X.mean()
+    cov2 = X.cov()
 
     mu_dif = mu2 - mu1
     inv_cov2 = np.linalg.inv(cov2)
@@ -149,14 +162,14 @@ def prob_discrete_var(outcomes):
     return prop
 
 
-def KL_matrices_disc_cont(clients, cat_feat):
+def KL_matrices_disc_cont(clients, cat_feat, num_feat):
     kl = np.empty((len(clients), len(clients)))
     for i in range(len(clients)):
         for j in range(len(clients)):  
             kl_all_cat = [] 
             for c in cat_feat:
                 kl_all_cat.append(KL_divergence_disc(prob_discrete_var(clients[i].X[c]),prob_discrete_var(clients[j].X[c])))
-            kl[i,j] = sum(kl_all_cat) + KL_divergence_multi(clients[i], clients[j])
+            kl[i,j] = sum(kl_all_cat) + KL_divergence_multi(clients[i], clients[j], False, num_feat)
     return pd.DataFrame(kl)
 
 
@@ -166,3 +179,11 @@ def make_KL_matrices(n_clients, clients):
         for j in range(n_clients):
             kl[i,j] = KL_divergence_multi(clients[i], clients[j])
     return pd.DataFrame(kl)
+
+def make_validation_sets(clients):
+    validation_X_set = torch.tensor(())
+    validation_y_set = torch.tensor(())
+    for i in range(len(clients)):
+        validation_X_set = torch.cat((validation_X_set, clients[i].X_test), 0)
+        validation_y_set = torch.cat((validation_y_set, clients[i].y_test), 0)
+    return validation_X_set, validation_y_set
