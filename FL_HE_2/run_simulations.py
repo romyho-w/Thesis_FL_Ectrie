@@ -16,6 +16,7 @@ from HE_functions import *
 from lrClass import LR
 from make_logreg_data import *
 from simulationDataUtils import *
+import scipy.stats as st
 
 random.seed(11007303)
 np.random.seed(2021)
@@ -52,6 +53,7 @@ def run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mea
                         KL_overview = []
                         best_acc_overview = []
                         KL_dict = {}
+                        CI_overview = []
 
                         for mc in monte_carlo_reps:
                             client_distribution_list = make_clients_dist(mean_dist, n_clients, n_features)
@@ -60,15 +62,17 @@ def run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mea
                             validation_X_set, validation_y_set = make_validation_sets_hypercubes(clients, n_features, 100, epsilon_sigma)
                             
                             fl_glob_model = copy.deepcopy(glob_model)
-                            best_epoch, best_acc, model_dict, final_results = FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, fl_glob_model, iters= 100)
+                            best_epoch, best_acc, model_dict, final_results = FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, fl_glob_model, 100, True)
                             KL_mean = (np.array(KL_df)[np.triu_indices(n_clients, k=1)].mean() + np.array(KL_df)[np.tril_indices(n_clients, -1)].mean()) /2
                             print('inter:{}, mean dist: {}, n_observation:{}, n_clients:{}, n_features:{}, mc:{}, epsilon_sigma:{}'.format(iter, mean_dist, n_observations, n_clients,  n_features, mc, epsilon_sigma))
                             print('Best model, iter: {}, acc: {}'.format(best_epoch, best_acc))  
-
-
+                            acc_CI = st.t.interval(alpha=0.95, df=len(final_results.best_acc)-1, loc=np.mean(final_results.best_acc), scale=st.sem(final_results.best_acc)) 
+                            CI_overview.append(acc_CI)
                             KL_overview.append(KL_mean)
                             best_acc_overview.append(float(best_acc))
-
+                        
+                        # KL_dict['acc_CI'] = st.t.interval(alpha=0.95, df=len(best_acc_overview)-1, loc=np.mean(best_acc_overview), scale=st.sem(best_acc_overview)) 
+                        KL_dict['acc_CI_mean'] = np.mean(CI_overview, axis=0)
                         KL_dict['KL_mean'] = np.mean(KL_overview)
                         KL_dict['acc_mean'] = np.mean(best_acc_overview)
 
@@ -81,7 +85,15 @@ def run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mea
 
     return Total_dict
 
-
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NpEncoder, self).default(obj)
 if __name__ == "__main__":
 
     # N_Clients = [2, 4]
@@ -115,7 +127,7 @@ if __name__ == "__main__":
     N_Features = [15]
     N_Observations = [200]
     mean_distance = [1.1]
-    monte_carlo_reps = range(100)
+    monte_carlo_reps = range(50)
     epsilon_sigmas = [10]
     
 
@@ -136,4 +148,4 @@ if __name__ == "__main__":
     results = run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mean_distance, epsilon_sigmas)
     time_str = str(datetime.now())
     with open('Results/total_dict_'+time_str+'.json', 'w') as convert_file:
-     convert_file.write(json.dumps(results))
+     convert_file.write(json.dumps(results, cls=NpEncoder))

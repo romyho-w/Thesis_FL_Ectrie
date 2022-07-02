@@ -6,13 +6,19 @@ import torch
 from clientClass import Client
 from lrClass import LR
 
-def accuracy_loss_LR(model, x, y):
-    criterion = torch.nn.BCELoss()
-    out = model(x)
-    yhat = torch.squeeze(out)
+def accuracy_loss_LR(model, x, y, simulation=False):
+    if simulation:
+        criterion = torch.nn.BCELoss()
+        out = model(x)
+        correct = torch.abs(y - out) < 0.5
+        loss = criterion(out, y)
+    else:
+        criterion = torch.nn.BCELoss()
+        out = model(x)
+        yhat = torch.squeeze(out)
 
-    correct = torch.abs(y - yhat) < 0.5
-    loss = criterion(yhat, y)
+        correct = torch.abs(y - yhat) < 0.5
+        loss = criterion(yhat, y)
     return correct.float().mean(), loss.item()
 
 def average_state_dict(state_dicts):
@@ -45,7 +51,7 @@ def decrypt_state_dicts(state_dict):
             state_dict[key] = torch.Tensor(state_dict[key].decrypt().tolist())
     return state_dict
 
-def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters):
+def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters, simulation= False):
     loss_train = []
     net_best = None
     best_acc = None
@@ -54,7 +60,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
     min_loss_client = []
     glob_model.eval()
     enrypted_state_dicts= None
-    acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set)
+    acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set, simulation)
 
     best_acc = acc_test
     for iter in range(iters):
@@ -63,7 +69,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         for client in clients:
             client_model = copy.deepcopy(glob_model)
             client.set_state_dict(client_model.state_dict())
-            client_state_dict, loss = train_model_client(client, epochs=10)
+            client_state_dict, loss = train_model_client(client, epochs=10, simulation = simulation)
             
             loss_locals.append(copy.deepcopy(loss))
             min_loss_client.append(min(loss))
@@ -77,7 +83,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         loss_avg = sum(min_loss_client) / len(min_loss_client)
         loss_train.append(loss_avg)        
             
-        acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set)
+        acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set, simulation)
 
         # print('Round {:3d}, Average loss {:.3f}, Test loss {:.3f}, Test accuracy: {:.2f}'.format(
         #     iter, loss_avg, loss_test, acc_test))
@@ -93,17 +99,19 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         final_results = pd.DataFrame(final_results, columns=['epoch', 'loss_avg', 'loss_test', 'acc_test', 'best_acc'])
 
     # print('Best model, iter: {}, acc: {}'.format(best_epoch, best_acc))    
-    return best_epoch, best_acc, glob_model.state_dict(), final_results, net_best
+    return best_epoch, best_acc, glob_model.state_dict(), final_results
 
-def train_model_client(client:Client, epochs):
+def train_model_client(client:Client, epochs, simulation=False):
     epoch_loss = []
 
     for e in range(epochs):
         client.model.train()
         client.optim.zero_grad()
         out = client.model(client.X_train)
-        if len(out.shape) > 1:
+        if not simulation:
             yhat = torch.squeeze(out)
+        else:
+            yhat = out
         loss = client.criterion(yhat, client.y_train)
         if e == 0:
             epoch_loss.append(loss.item())
