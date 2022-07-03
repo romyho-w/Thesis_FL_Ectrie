@@ -7,6 +7,7 @@ from typing import Generator
 
 import diffprivlib.models as dp
 import numpy as np
+import scipy.stats as st
 import tenseal as ts
 import tensorflow as tf
 
@@ -14,9 +15,7 @@ from dataFunction import *
 from FL_utils import *
 from HE_functions import *
 from lrClass import LR
-from make_logreg_data import *
 from simulationDataUtils import *
-import scipy.stats as st
 
 random.seed(11007303)
 np.random.seed(2021)
@@ -73,6 +72,8 @@ def run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mea
                         
                         # KL_dict['acc_CI'] = st.t.interval(alpha=0.95, df=len(best_acc_overview)-1, loc=np.mean(best_acc_overview), scale=st.sem(best_acc_overview)) 
                         KL_dict['acc_CI_mean'] = np.mean(CI_overview, axis=0)
+                        KL_dict['acc_min'] = np.min(best_acc_overview)
+                        KL_dict['acc_max'] = np.max(best_acc_overview)
                         KL_dict['KL_mean'] = np.mean(KL_overview)
                         KL_dict['acc_mean'] = np.mean(best_acc_overview)
 
@@ -127,7 +128,7 @@ if __name__ == "__main__":
     N_Features = [15]
     N_Observations = [200]
     mean_distance = [1.1]
-    monte_carlo_reps = range(50)
+    monte_carlo_reps = range(100)
     epsilon_sigmas = [10]
     
 

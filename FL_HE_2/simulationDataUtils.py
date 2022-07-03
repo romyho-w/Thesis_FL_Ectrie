@@ -1,9 +1,11 @@
-import random 
+import copy
+import random
+
 import numpy as np
 import pandas as pd
-import copy
-from clientClass import Client
 import torch
+from clientClass import Client
+
 
 def make_clients_dist(mean_dist, n_clients, n_features):
     clients_distribution = []

@@ -52,3 +52,7 @@ class Client:
         self.X = self.X.drop(cat_feat, axis = 1)
 
         return self.X 
+        
+    def make_test(self):
+        self.X_train, self.X_test, self.y_train, self.y_test = client_train_test_split(self.X, self.y)
+    

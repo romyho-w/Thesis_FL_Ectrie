@@ -109,32 +109,32 @@ def new_df(df, Swizerland = True):
     return df
    
 
-def make_dummies(df, cat_feat):
-    possible_values = dict()
-    for i in cat_feat:
-        possible_values[i] = df[i].unique()
+# def make_dummies(df, cat_feat):
+#     possible_values = dict()
+#     for i in cat_feat:
+#         possible_values[i] = df[i].unique()
 
-    for feature in cat_feat:
-        list_of_possible_values = [feature + '_' + str(value) for value in possible_values[feature]]
-        dummies = pd.get_dummies(df[feature], prefix = feature).T.reindex(list_of_possible_values).T.fillna(0)
-        df = pd.concat([df, dummies], axis=1)
+#     for feature in cat_feat:
+#         list_of_possible_values = [feature + '_' + str(value) for value in possible_values[feature]]
+#         dummies = pd.get_dummies(df[feature], prefix = feature).T.reindex(list_of_possible_values).T.fillna(0)
+#         df = pd.concat([df, dummies], axis=1)
 
-    df = df.drop(cat_feat, axis = 1)
+#     df = df.drop(cat_feat, axis = 1)
 
-    return df 
+#     return df 
 
 def KL_divergence_multi(client1, client2, numeric = True, num_feat=None):
     if not numeric:
-        X = client1.X[num_feat]
-        X = client2.X[num_feat]
+        X1 = client1.X[num_feat]
+        X2 = client2.X[num_feat]
     else:
-        X = client1.X
-        X = client2.X
-    mu1 = X.mean()
-    cov1 = X.cov()
+        X1 = client1.X
+        X2 = client2.X
+    mu1 = X1.mean()
+    cov1 = X1.cov()
 
-    mu2 = X.mean()
-    cov2 = X.cov()
+    mu2 = X2.mean()
+    cov2 = X2.cov()
 
     mu_dif = mu2 - mu1
     inv_cov2 = np.linalg.inv(cov2)
