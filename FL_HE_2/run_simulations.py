@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from typing import Generator
 
-import diffprivlib.models as dp
+
 import numpy as np
 import scipy.stats as st
 import tenseal as ts

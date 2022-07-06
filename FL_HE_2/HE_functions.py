@@ -69,7 +69,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         for client in clients:
             client_model = copy.deepcopy(glob_model)
             client.set_state_dict(client_model.state_dict())
-            client_state_dict, loss = train_model_client(client, epochs=10, simulation = simulation)
+            client_state_dict, loss = train_model_client(client, epochs=40, simulation = simulation)
             
             loss_locals.append(copy.deepcopy(loss))
             min_loss_client.append(min(loss))
