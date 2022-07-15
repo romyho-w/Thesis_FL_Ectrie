@@ -51,13 +51,22 @@ def decrypt_state_dicts(state_dict):
             state_dict[key] = torch.Tensor(state_dict[key].decrypt().tolist())
     return state_dict
 
-def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters, simulation= False):
+def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters, simulation= False, switzerland=False):
     loss_train = []
     net_best = None
     best_acc = None
     best_epoch = None
     results = []
     min_loss_client = []
+    if switzerland:
+        client_results = {'Cleveland': [],
+        'Switzerland': [],
+        'VA Long Beach': [],
+        'Hungary': []}
+    else:
+        client_results = {'Cleveland': [],
+        'VA Long Beach': [],
+        'Hungary': []}
     glob_model.eval()
     enrypted_state_dicts= None
     acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set, simulation)
@@ -66,6 +75,8 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
     for iter in range(iters):
         loss_locals = []
         client_state_dicts = []
+        client_acc_list = []
+        client_loss_list = []
         for client in clients:
             client_model = copy.deepcopy(glob_model)
             client.set_state_dict(client_model.state_dict())
@@ -73,6 +84,11 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
             
             loss_locals.append(copy.deepcopy(loss))
             min_loss_client.append(min(loss))
+            client_acc, client_loss = accuracy_loss_LR(client.model, client.X_test, client.y_test)
+            new_list = client_results.get(client.name)
+            new_list.append(client_acc)
+            client_results[client.name] = new_list
+            # print('Name:{}, accuracy:{}'.format(client.name, client_acc))
             client_state_dicts.append(client_state_dict)
 
         enrypted_state_dicts = encrypt_state_dicts(copy.deepcopy(client_state_dicts), ctx_eval)
@@ -99,7 +115,7 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
         final_results = pd.DataFrame(final_results, columns=['epoch', 'loss_avg', 'loss_test', 'acc_test', 'best_acc'])
 
     # print('Best model, iter: {}, acc: {}'.format(best_epoch, best_acc))    
-    return best_epoch, best_acc, glob_model.state_dict(), final_results
+    return best_epoch, best_acc, glob_model.state_dict(), final_results, client_results
 
 def train_model_client(client:Client, epochs, simulation=False):
     epoch_loss = []

@@ -50,31 +50,42 @@ def run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mea
                         
                     
                         KL_overview = []
+                        KL_y_overview = []
                         best_acc_overview = []
                         KL_dict = {}
-                        CI_overview = []
+                        # CI_overview = []
 
                         for mc in monte_carlo_reps:
                             client_distribution_list = make_clients_dist(mean_dist, n_clients, n_features)
                             clients = define_clients(client_distribution_list, n_observations,n_features,glob_model, epsilon_sigma)
                             KL_df = make_KL_matrices(n_clients, clients)
+                            KL_y = make_KL_matrices_y(n_clients, clients)
                             validation_X_set, validation_y_set = make_validation_sets_hypercubes(clients, n_features, 100, epsilon_sigma)
                             
                             fl_glob_model = copy.deepcopy(glob_model)
                             best_epoch, best_acc, model_dict, final_results = FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, fl_glob_model, 100, True)
                             KL_mean = (np.array(KL_df)[np.triu_indices(n_clients, k=1)].mean() + np.array(KL_df)[np.tril_indices(n_clients, -1)].mean()) /2
+                            # if n_clients == 2:
+                            #     # print(KL_y)
+                            #     KL_y_mean = (KL_y[0][1] + KL_y[1][0])/2 
+                            # else:
+                            KL_y_mean  = (np.array(KL_y)[np.triu_indices(n_clients, k=1)].mean() + np.array(KL_y)[np.tril_indices(n_clients, -1)].mean()) /2
+                                # print(KL_y_mean)
                             print('inter:{}, mean dist: {}, n_observation:{}, n_clients:{}, n_features:{}, mc:{}, epsilon_sigma:{}'.format(iter, mean_dist, n_observations, n_clients,  n_features, mc, epsilon_sigma))
                             print('Best model, iter: {}, acc: {}'.format(best_epoch, best_acc))  
-                            acc_CI = st.t.interval(alpha=0.95, df=len(final_results.best_acc)-1, loc=np.mean(final_results.best_acc), scale=st.sem(final_results.best_acc)) 
-                            CI_overview.append(acc_CI)
+                            print('N_clients: {}, KL_y: {}'.format(n_clients, KL_y_mean))
+                            # acc_CI = st.t.interval(alpha=0.95, df=len(final_results.best_acc)-1, loc=np.mean(final_results.best_acc), scale=st.sem(final_results.best_acc)) 
+                            # CI_overview.append(acc_CI)
                             KL_overview.append(KL_mean)
+                            KL_y_overview.append(KL_y_mean)
                             best_acc_overview.append(float(best_acc))
                         
                         # KL_dict['acc_CI'] = st.t.interval(alpha=0.95, df=len(best_acc_overview)-1, loc=np.mean(best_acc_overview), scale=st.sem(best_acc_overview)) 
-                        KL_dict['acc_CI_mean'] = np.mean(CI_overview, axis=0)
+                        # KL_dict['acc_CI_mean'] = np.mean(CI_overview, axis=0)
                         KL_dict['acc_min'] = np.min(best_acc_overview)
                         KL_dict['acc_max'] = np.max(best_acc_overview)
                         KL_dict['KL_mean'] = np.mean(KL_overview)
+                        KL_dict['KL_y_mean'] = np.mean(KL_y_overview)
                         KL_dict['acc_mean'] = np.mean(best_acc_overview)
 
                         summary = {}
@@ -124,11 +135,11 @@ if __name__ == "__main__":
     N_Clients = np.concatenate((client_list_begin, np.arange(10, 150, 10)))
 
 
-    # N_Clients = np.arange(0.1, 3.0, 0.5)
+    # N_Clients = [2, 5]
     N_Features = [15]
     N_Observations = [200]
     mean_distance = [1.1]
-    monte_carlo_reps = range(100)
+    monte_carlo_reps = range(20)
     epsilon_sigmas = [10]
     
 

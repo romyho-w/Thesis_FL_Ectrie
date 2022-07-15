@@ -1,0 +1,34 @@
+{
+    "0": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "acc_min": 0.6700000166893005,
+            "acc_max": 0.6700000166893005,
+            "KL_mean": 0.0004541338612876391,
+            "KL_y_mean": 0.0004541338612876391,
+            "acc_mean": 0.6700000166893005
+        }
+    },
+    "1": {
+        "parameters": {
+            "n_clients": 5,
+            "n_features": 15,
+            "n_observations": 200,
+            "mean_dist": 1.1,
+            "epsilon_sigma": 10
+        },
+        "results": {
+            "acc_min": 0.6000000238418579,
+            "acc_max": 0.6000000238418579,
+            "KL_mean": 5.894894961983376,
+            "KL_y_mean": 0.005276706346442058,
+            "acc_mean": 0.6000000238418579
+        }
+    }
+}

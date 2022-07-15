@@ -106,6 +106,7 @@ def new_df(df, Swizerland = True):
     # print('drop rows with resting BP', drop_mis-dropBP)
     # # REPLACE CHOLESTROL VALUE = 0 WITH MEDIAN
     # df.Cholesterol = df.Cholesterol.replace(0, df.Cholesterol.median())
+    # print(df.shape)
     return df
    
 
@@ -178,6 +179,13 @@ def make_KL_matrices(n_clients, clients):
     for i in range(n_clients):
         for j in range(n_clients):
             kl[i,j] = KL_divergence_multi(clients[i], clients[j])
+    return pd.DataFrame(kl)
+
+def make_KL_matrices_y(n_clients, clients):
+    kl = np.empty((len(clients), len(clients)))
+    for i in range(len(clients)):
+        for j in range(len(clients)):
+            kl[i,j] = KL_divergence_disc(prob_discrete_var(clients[i].y),prob_discrete_var(clients[j].y)) 
     return pd.DataFrame(kl)
 
 def make_validation_sets(clients):
