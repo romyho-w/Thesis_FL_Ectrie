@@ -4,6 +4,4 @@
 /__pycache__
 /thesis_fl
 **/__pycache__/
-env/*
-/env
-env/**
+.venv
