@@ -1,230 +1,137 @@
-import builtins
-
+import copy 
+import tenseal as ts
 import numpy as np
-import tenseal.sealapi as seal
+import pandas as pd
 import torch
-from cryptotree.cryptotree import (HomomorphicNeuralRandomForest,
-                                   HomomorphicTreeEvaluator,
-                                   HomomorphicTreeFeaturizer)
-from cryptotree.polynomials import polyeval_tree
-from cryptotree.preprocessing import Featurizer
-from cryptotree.seal_helper import (append_globals_to_builtins,
-                                    create_seal_globals)
-from cryptotree.tree import (CrossEntropyLabelSmoothing, NeuralRandomForest,
-                             SigmoidTreeMaker, TanhTreeMaker)
-from fastai.basic_data import DataBunch
-from fastai.metrics import accuracy
-from fastai.tabular.learner import Learner
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (accuracy_score, f1_score, precision_score,
-                             recall_score)
-from sklearn.model_selection import train_test_split
-from torch.utils import data
+from clientClass import Client
+from lrClass import LR
+
+def accuracy_loss_LR(model, x, y, simulation=False):
+    if simulation:
+        criterion = torch.nn.BCELoss()
+        out = model(x)
+        correct = torch.abs(y - out) < 0.5
+        loss = criterion(out, y)
+    else:
+        criterion = torch.nn.BCELoss()
+        out = model(x)
+        yhat = torch.squeeze(out)
+
+        correct = torch.abs(y - yhat) < 0.5
+        loss = criterion(yhat, y)
+    return correct.float().mean(), loss.item()
+
+def average_state_dict(state_dicts):
+    result = copy.deepcopy(state_dicts[0])
+    for key in result:
+        for state_dict in state_dicts[1:]:
+            result[key] += state_dict[key]
+        result[key] *= 1/len(state_dicts)
+    return result
+
+def encrypt_state_dicts(state_dicts, ctx_eval):
+    for loc, state_dict in enumerate(state_dicts):
+        for key in state_dict.keys():
+            if key == 'lr.weight':
+                var_list = state_dict.get(key)[0].tolist()
+                encrypted_values = ts.ckks_vector(ctx_eval, var_list)
+                state_dict[key] = encrypted_values
+            else:
+                var_list = state_dict.get(key).tolist()
+                encrypted_bias = ts.CKKSTensor(ctx_eval,var_list)
+                state_dict[key] = encrypted_bias
+        state_dicts[loc] = state_dict
+    return state_dicts
+
+def decrypt_state_dicts(state_dict):
+    for key in state_dict.keys():
+        if key == 'lr.weight':
+            state_dict[key] = torch.Tensor(state_dict[key].decrypt()).unsqueeze(0)
+        else:
+            state_dict[key] = torch.Tensor(state_dict[key].decrypt().tolist())
+    return state_dict
+
+def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters, simulation= False, switzerland=False):
+    loss_train = []
+    net_best = None
+    best_acc = None
+    best_epoch = None
+    results = []
+    min_loss_client = []
+    if switzerland:
+        client_results = {'Cleveland': [],
+        'Switzerland': [],
+        'VA Long Beach': [],
+        'Hungary': []}
+    else:
+        client_results = {'Cleveland': [],
+        'VA Long Beach': [],
+        'Hungary': []}
+    glob_model.eval()
+    enrypted_state_dicts= None
+    acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set, simulation)
+
+    best_acc = acc_test
+    for iter in range(iters):
+        loss_locals = []
+        client_state_dicts = []
+        client_acc_list = []
+        client_loss_list = []
+        for client in clients:
+            client_model = copy.deepcopy(glob_model)
+            client.set_state_dict(client_model.state_dict())
+            client_state_dict, loss = train_model_client(client, epochs=40, simulation = simulation)
+            
+            loss_locals.append(copy.deepcopy(loss))
+            min_loss_client.append(min(loss))
+            client_acc, client_loss = accuracy_loss_LR(client.model, client.X_test, client.y_test)
+            new_list = client_results.get(client.name)
+            new_list.append(client_acc)
+            client_results[client.name] = new_list
+            # print('Name:{}, accuracy:{}'.format(client.name, client_acc))
+            client_state_dicts.append(client_state_dict)
+
+        enrypted_state_dicts = encrypt_state_dicts(copy.deepcopy(client_state_dicts), ctx_eval)
+        averaged_encrypted_state_dict = average_state_dict(enrypted_state_dicts)
+        decrypted_state_dicts = decrypt_state_dicts(averaged_encrypted_state_dict)
+        glob_model.load_state_dict(decrypted_state_dicts)
+
+        loss_avg = sum(min_loss_client) / len(min_loss_client)
+        loss_train.append(loss_avg)        
+            
+        acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set, simulation)
+
+        # print('Round {:3d}, Average loss {:.3f}, Test loss {:.3f}, Test accuracy: {:.2f}'.format(
+        #     iter, loss_avg, loss_test, acc_test))
 
 
-class TabularDataset(data.Dataset):
-    'Characterizes a dataset for PyTorch'
-    def __init__(self, X: np.ndarray, y: np.ndarray):
-        'Initialization'
-        self.X, self.y = X,y
+        if best_acc is None or acc_test > best_acc:
+            net_best = copy.deepcopy(glob_model)
+            best_acc = acc_test
+            best_epoch = iter
 
-    def __len__(self):
-        'Denotes the total number of samples'
-        return len(self.X)
+        results.append(np.array([iter, loss_avg, loss_test, acc_test, best_acc]))
+        final_results = np.array(results)
+        final_results = pd.DataFrame(final_results, columns=['epoch', 'loss_avg', 'loss_test', 'acc_test', 'best_acc'])
 
-    def __getitem__(self, index):
-        'Generates one sample of data'
+    # print('Best model, iter: {}, acc: {}'.format(best_epoch, best_acc))    
+    return best_epoch, best_acc, glob_model.state_dict(), final_results, client_results
 
-        # Load data and get label
-        X = torch.tensor(self.X[index]).float()
-        y = torch.tensor(self.y[index])
+def train_model_client(client:Client, epochs, simulation=False):
+    epoch_loss = []
 
-        return X, y
-
-def split_prep_data(client, pipe):
-    # X_train, X_test, y_train, y_test = train_test_split(
-    #                                                     client.X,
-    #                                                     client.y,
-    #                                                     test_size=0.2,
-    #                                                     random_state=42)
-    X_train_normalized, X_valid_normalized, y_train, y_valid = train_test_split(pipe.fit_transform(client.X),
-                                                        client.y,
-                                                        test_size=0.2,
-                                                        random_state=42)
-    # y_train = y_train.astype(int)
-    # y_valid = y_valid.astype(int)
-    x_train = torch.tensor(X_train_normalized).float()
-    y_train = torch.Tensor(y_train.reset_index(drop=True)).unsqueeze(1)
-    x_test = torch.tensor(X_valid_normalized).float()
-    y_test = torch.Tensor(y_valid.reset_index(drop=True)).unsqueeze(1)
-    return y_train, y_test, x_train, x_test
-
-
-def make_tabularDataset(X_train_normalized, y_train, X_valid_normalized, y_valid):
-    train_ds = TabularDataset(X_train_normalized, y_train.values)
-    valid_ds = TabularDataset(X_valid_normalized, y_valid.values)
-    
-    return train_ds, valid_ds
-    
-def make_dataloader(train_ds, valid_ds, bs=128):    
-    # bs = 128
-
-    train_dl = data.DataLoader(train_ds, batch_size=bs, shuffle=True)
-    valid_dl = data.DataLoader(valid_ds, batch_size=bs)
-    fix_dl = data.DataLoader(train_ds, batch_size=bs, shuffle=False)
-    return train_dl, valid_dl, fix_dl
-
-
-def set_tree(max_depth, dilatation_factor):
-    max_depth = max_depth
-    polynomial_degree = dilatation_factor
-    sigmoid_tree_maker = SigmoidTreeMaker(
-                                        use_polynomial=True,
-                                        dilatation_factor=dilatation_factor,
-                                        polynomial_degree=polynomial_degree)
-
-    tanh_tree_maker = TanhTreeMaker(
-                                    use_polynomial=True,
-                                    dilatation_factor=dilatation_factor,
-                                    polynomial_degree=polynomial_degree)
-
-                                    
-    rf = RandomForestClassifier(n_estimators=20, random_state=2,max_depth=max_depth, bootstrap=False)
-    # rf = RandomForestClassifier(max_depth=max_depth, random_state=1, bootstrap=False)
-
-    return rf, sigmoid_tree_maker, tanh_tree_maker 
-
-
-def fine_tune_tree(tree_maker, rf, train_dl, valid_dl, fix_dl):
-    model = NeuralRandomForest(rf.estimators_, tree_maker=tree_maker)
-
-    model.freeze_layer("comparator")
-    model.freeze_layer("matcher")
-
-    data = DataBunch(train_dl, valid_dl,fix_dl=fix_dl)
-
-    criterion = CrossEntropyLabelSmoothing()
-
-    learn = Learner(data, model, loss_func=criterion, metrics=accuracy)
-    learn.lr_find()
-    learn.recorder.plot()
-
-    learn.fit_one_cycle(5,1e-1/2)
-
-    return model
-
-def set_config():
-    dilatation_factor = 16
-    degree = dilatation_factor
-
-    PRECISION_BITS = 28
-    UPPER_BITS = 9
-
-    polynomial_multiplications = int(np.ceil(np.log2(degree))) + 1
-    n_polynomials = 2
-    matrix_multiplications = 3
-
-    depth = matrix_multiplications + polynomial_multiplications * n_polynomials
-
-    poly_modulus_degree = 32768
-
-    moduli = [PRECISION_BITS + UPPER_BITS] + (depth) * [PRECISION_BITS] + [PRECISION_BITS + UPPER_BITS]
-
-    create_seal_globals(globals(), poly_modulus_degree, moduli, PRECISION_BITS, use_symmetric_key=False)
-    append_globals_to_builtins(globals(), builtins)
-
-
-
-def setup_HE(tree_maker, model):
-
-    h_rf = HomomorphicNeuralRandomForest(model)
-    tree_evaluator = HomomorphicTreeEvaluator.from_model(h_rf, tree_maker.coeffs, 
-                                                   polyeval_tree, evaluator, encoder, relin_keys, galois_keys, 
-                                                   scale)
-
-    homomorphic_featurizer = HomomorphicTreeFeaturizer(h_rf.return_comparator(), encoder, encryptor, scale)
-
-    return tree_evaluator, homomorphic_featurizer
-
-
-def predict(x, homomorphic_featurizer, tree_evaluator):
-    """Performs HRF prediction"""
-    
-    # We first encrypt and evaluate our model on it
-    ctx = homomorphic_featurizer.encrypt(x)
-    outputs = tree_evaluator(ctx)
-    
-    # We then decrypt it and get the first 2 values which are the classes scores
-    ptx = seal.Plaintext()
-    decryptor.decrypt(outputs, ptx)
-    
-    homomorphic_pred = encoder.decode_double(ptx)[:2]
-    homomorphic_pred = np.argmax(homomorphic_pred)
-    
-    return homomorphic_pred
-
-
-def HE_RF_pred(X_valid_normalized, homomorphic_featurizer, tree_evaluator):
-
-    print("Homomorpic encryption prediction calculations ....")
-    hrf_pred = []
-    # row_num = 1
-    for i in X_valid_normalized:
-        # print("row "+ str(row_num)+ " of the "+ str(len(X_valid_normalized)) )
-        hrf_pred.append(predict(i, homomorphic_featurizer, tree_evaluator))
-        # row_num += 1
-    return hrf_pred
-
-def NRF_pred(valid_dl, model):
-    print("Neural tree prediction calculations ....")
-    outputs = []
-
-    for x,y in valid_dl:
-        with torch.no_grad():
-            pred = model(x)
-        outputs.append(pred)
-        
-    nrf_pred = torch.cat(outputs).argmax(dim=1).numpy()
-
-    return nrf_pred
-
-def LIN_pred(X_train_normalized, y_train, X_valid_normalized):
-    print("Linear prediction calculations ....")
-    linear = LogisticRegression()
-    linear.fit(X_train_normalized, y_train)
-
-    # We compute the linear preds
-    linear_pred = linear.predict(X_valid_normalized)
-
-    return linear_pred
-
-
-def compute_metrics(pred, y):
-    """Computes all the metrics between predictions and real values"""
-    accuracy = accuracy_score(pred,y)
-    precision = precision_score(pred,y)
-    recall = recall_score(pred,y)
-    f1 = f1_score(pred, y)
-    return dict(accuracy=accuracy, precision=precision, recall=recall, f1=f1)
-
-def results_trees(rf, sigmoid_tree_maker, tanh_tree_maker, X_train_normalized, y_train ):    
-    rf.fit(X_train_normalized, y_train)
-    
-    estimators = rf.estimators_
-    sigmoid_neural_rf = NeuralRandomForest(estimators, sigmoid_tree_maker)
-    tanh_neural_rf = NeuralRandomForest(estimators, tanh_tree_maker)
-
-    with torch.no_grad():
-        sigmoid_neural_pred = sigmoid_neural_rf(torch.tensor(X_train_normalized).float()).argmax(dim=1).numpy()
-        tanh_neural_pred = tanh_neural_rf(torch.tensor(X_train_normalized).float()).argmax(dim=1).numpy()
-
-    pred = rf.predict(X_train_normalized)
-    print(f"Original accuracy : {(pred == y_train).mean()}")
-
-    print(f"Accuracy of sigmoid  : {(sigmoid_neural_pred == y_train).mean()}")
-    print(f"Accuracy of tanh : {(tanh_neural_pred == y_train).mean()}")
-
-    print(f"Match between sigmoid and original : {(sigmoid_neural_pred == pred).mean()}")
-    print(f"Match between tanh and original : {(tanh_neural_pred == pred).mean()}")
-    return rf, sigmoid_neural_rf, tanh_neural_rf
+    for e in range(epochs):
+        client.model.train()
+        client.optim.zero_grad()
+        out = client.model(client.X_train)
+        if not simulation:
+            yhat = torch.squeeze(out)
+        else:
+            yhat = out
+        loss = client.criterion(yhat, client.y_train)
+        if e == 0:
+            epoch_loss.append(loss.item())
+        loss.backward()
+        client.optim.step()
+        epoch_loss.append(loss.item())
+    return client.model.state_dict(), epoch_loss

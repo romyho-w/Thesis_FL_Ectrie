@@ -4,5 +4,10 @@
 /__pycache__
 /thesis_fl
 **/__pycache__/
+<<<<<<< HEAD
 /env
 /.env
+=======
+.env
+/.env
+>>>>>>> f2fb92f176e58a2668ad254e3cf8f573277e4d70

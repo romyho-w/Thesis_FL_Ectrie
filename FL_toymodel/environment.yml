@@ -1,0 +1,9 @@
+name: fl_toymodel
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - matplotlib
+  - dill
+  - scikit-learn
+  - ipykernel

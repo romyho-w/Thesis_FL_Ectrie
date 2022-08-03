@@ -1,0 +1,14 @@
+{
+    "0": {
+        "parameters": {
+            "n_clients": 2,
+            "n_features": 10,
+            "n_observations": 100,
+            "mean_dist": 0.1
+        },
+        "results": {
+            "KL_mean": 0.6317766283380823,
+            "acc_mean": 1.0
+        }
+    }
+}
