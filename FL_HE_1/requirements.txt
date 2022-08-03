@@ -1,8 +1,0 @@
-numpy
-pandas
-matplotlib
-sklearn
-tensorflow
-keras
-tensorflow_federated
-nest_asyncio
