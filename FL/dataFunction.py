@@ -108,7 +108,7 @@ def KL_divergence_multi(client1, client2, numeric = True, num_feat=None):
 
     mu2 = X2.mean()
     cov2 = X2.cov()
-    
+
     mu_dif = mu2 - mu1
     inv_cov2 = np.linalg.inv(cov2)
     trace_cov12 = np.trace((inv_cov2 @ cov1).to_numpy())
@@ -134,6 +134,28 @@ def prob_discrete_var(outcomes):
     prop = cnt / len(outcomes)
     return prop
 
+def KL_divergence_simualation(dist1, dist2):
+    mu1 = dist1[0]
+    cov1 = dist1[1]
+
+    mu2 = dist2[0]
+    cov2 = dist2[1]
+
+    mu_dif = mu2 - mu1
+    inv_cov2 = np.linalg.inv(cov2)
+    trace_cov12 = np.matrix.trace(inv_cov2*cov1)
+    det_cov1 = np.linalg.det(cov1)
+    det_cov2 = np.linalg.det(cov2)
+
+    return 1/2 *( mu_dif.T @ inv_cov2 @ mu_dif+trace_cov12-np.log(det_cov1/det_cov2)-len(mu1))
+
+
+def make_KL_matrice_simulation(n_clients, clients_distribution):
+    kl = np.empty((n_clients, n_clients))
+    for i in range(n_clients):
+        for j in range(n_clients):
+            kl[i,j] = KL_divergence_simualation(clients_distribution[i], clients_distribution[j])
+    return pd.DataFrame(kl)
 
 def KL_matrices_disc_cont(clients, cat_feat, num_feat):
     kl = np.empty((len(clients), len(clients)))

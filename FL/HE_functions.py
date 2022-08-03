@@ -12,6 +12,7 @@ def accuracy_loss_LR(model, x, y, simulation=False):
         out = model(x)
         correct = torch.abs(y - out) < 0.5
         loss = criterion(out, y)
+        
     else:
         criterion = torch.nn.BCELoss()
         out = model(x)
@@ -51,24 +52,28 @@ def decrypt_state_dicts(state_dict):
             state_dict[key] = torch.Tensor(state_dict[key].decrypt().tolist())
     return state_dict
 
-def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters, simulation= False, switzerland=False):
+def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model, iters, simulation =False, switzerland=False):
     loss_train = []
     net_best = None
     best_acc = None
     best_epoch = None
     results = []
     min_loss_client = []
-    if switzerland:
-        client_results = {'Cleveland': [],
-        'Switzerland': [],
-        'VA Long Beach': [],
-        'Hungary': []}
+    if not simulation:
+        if switzerland:
+            client_results = {'Cleveland': [],
+            'Switzerland': [],
+            'VA Long Beach': [],
+            'Hungary': []}
+        else:
+            client_results = {'Cleveland': [],
+            'VA Long Beach': [],
+            'Hungary': []}
     else:
-        client_results = {'Cleveland': [],
-        'VA Long Beach': [],
-        'Hungary': []}
+        client_results = None
     glob_model.eval()
     enrypted_state_dicts= None
+
     acc_test, loss_test =  accuracy_loss_LR(glob_model,validation_X_set, validation_y_set, simulation)
 
     best_acc = acc_test
@@ -84,10 +89,12 @@ def FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, glob_model,
             
             loss_locals.append(copy.deepcopy(loss))
             min_loss_client.append(min(loss))
-            client_acc, client_loss = accuracy_loss_LR(client.model, client.X_test, client.y_test)
-            new_list = client_results.get(client.name)
-            new_list.append(client_acc)
-            client_results[client.name] = new_list
+            client_acc, client_loss = accuracy_loss_LR(client.model, client.X_test, client.y_test, simulation)
+            if not simulation:
+                new_list = client_results.get(client.name)
+                new_list.append(client_acc)
+                client_results[client.name] = new_list
+
             client_state_dicts.append(client_state_dict)
 
         enrypted_state_dicts = encrypt_state_dicts(copy.deepcopy(client_state_dicts), ctx_eval)

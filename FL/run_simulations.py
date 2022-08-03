@@ -4,9 +4,7 @@ import random
 from datetime import datetime
 
 import numpy as np
-import scipy.stats as st
 import tenseal as ts
-import tensorflow as tf
 
 from dataFunction import *
 from HE_functions import *
@@ -53,12 +51,12 @@ def run_simulations(N_Clients, N_Features, N_Observations, monte_carlo_reps, mea
                         for mc in monte_carlo_reps:
                             client_distribution_list = make_clients_dist(mean_dist, n_clients, n_features)
                             clients = define_clients(client_distribution_list, n_observations,n_features,glob_model, epsilon_sigma)
-                            KL_df = make_KL_matrices(n_clients, clients)
+                            KL_df = make_KL_matrice_simulation(n_clients, client_distribution_list)
                             KL_y = make_KL_matrices_y(n_clients, clients)
                             validation_X_set, validation_y_set = make_validation_sets_hypercubes(clients, n_features, 100, epsilon_sigma)
                             
                             fl_glob_model = copy.deepcopy(glob_model)
-                            best_epoch, best_acc, model_dict, final_results = FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, fl_glob_model, 100, True)
+                            best_epoch, best_acc, model_dict, final_results, client_results = FL_proces(clients, validation_X_set, validation_y_set, ctx_eval, fl_glob_model, 100, True, False)
                             KL_mean = (np.array(KL_df)[np.triu_indices(n_clients, k=1)].mean() + np.array(KL_df)[np.tril_indices(n_clients, -1)].mean()) /2
 
                             KL_y_mean  = (np.array(KL_y)[np.triu_indices(n_clients, k=1)].mean() + np.array(KL_y)[np.tril_indices(n_clients, -1)].mean()) /2
@@ -124,7 +122,7 @@ if __name__ == "__main__":
     # N_Clients = np.concatenate((client_list_begin, np.arange(10, 150, 10)))
 
 # N_Clients
-    N_Clients = [5]
+    N_Clients = [2]
     N_Features = [5]
     N_Observations = [2]
     mean_distance = [1.1]
